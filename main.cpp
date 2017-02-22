@@ -3,8 +3,30 @@
 #include <math.h>
 #include <stdlib.h>
 
-//* Day 0: Mean, Median, and Mode *//
+//* Day 0: Weighted Mean */
 
+int main(void)
+{
+	int N = 0;
+	double x = 0;
+	double w = 0;
+	double mw = 0;
+
+	scanf("%d", &N);
+	int arr[2 * N];
+
+	for (int i = 0; i < 2 * N; i++)
+		scanf("%d", &arr[i]);
+	for(int i = 0; i < N; i++)
+		x = x + arr[i] * arr[N + i];
+	for(int i = 0; i < N; i++)
+		w += arr[N + i];
+	mw = x / w;
+	printf("%.1lf", mw);
+}
+
+//* Day 0: Mean, Median, and Mode *//
+/*
 int main()
 {
 	int N = 0;
@@ -18,7 +40,6 @@ int main()
 	scanf("%d", &N);
 	int arr[N];
 	med = N / 2;
-	//printf("%d\n", med);
 	for(int i = 0; i < N; i++)
 	{
 		scanf("%d", &arr[i]);
@@ -36,15 +57,7 @@ int main()
 			}
 		}
 	}
-/*
-	for (int i = 0; i < N; i++)
-	{
-		printf("%d | ", arr[i]);
-	}
- */
-	//printf("\n");
 	int arr2[N];
-	//arr2[N - 1] = 0;
 	for (int j = 0; j < N; j++)
 	{
 		arr2[j] = 0;
@@ -60,12 +73,10 @@ int main()
 		}
 	}
 	median = (arr[med] + arr[med - 1]) / (double )2;
-	printf("%.1f\n%.1f\n%d", mean / N, median, mode);
+	mean = mean / N;
+	printf("%.1f\n", mean);
+	printf("%.1f\n", median);
+	printf("%d", mode);
 	return 0;
 }
-
-/*
-51284.9
-51113.0
-6392
- */
+*/
