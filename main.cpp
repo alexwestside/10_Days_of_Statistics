@@ -3,8 +3,23 @@
 #include <math.h>
 #include <stdlib.h>
 
-//* Day 1: Standard Deviation *//
 
+//* Day 1: Quartiles *//
+
+int main()
+{
+	int N = 0;
+	scanf("%d", &N);
+
+
+
+
+
+
+}
+
+//* Day 1: Standard Deviation *//
+/*
 int main()
 {
 	int N = 0;
@@ -24,7 +39,7 @@ int main()
 	stdiv = sqrt(stdiv / N);
 	printf("%.1f", stdiv);
 }
-
+*/
 
 //* Day 0: Weighted Mean */
 /*
