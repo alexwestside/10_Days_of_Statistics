@@ -3,8 +3,31 @@
 #include <math.h>
 #include <stdlib.h>
 
-//* Day 0: Weighted Mean */
+//* Day 1: Standard Deviation *//
 
+int main()
+{
+	int N = 0;
+	int med = 0;
+	double stdiv = 0;
+
+	scanf("%d", &N);
+	int arr[N];
+	for (int i = 0; i < N; i++)
+	{
+		scanf("%d", &arr[i]);
+		med += arr[i];
+	}
+	med = med / N;
+	for(int i = 0; i < N; i++)
+		stdiv += pow((arr[i] - med), 2);
+	stdiv = sqrt(stdiv / N);
+	printf("%.1f", stdiv);
+}
+
+
+//* Day 0: Weighted Mean */
+/*
 int main(void)
 {
 	int N = 0;
@@ -24,7 +47,7 @@ int main(void)
 	mw = x / w;
 	printf("%.1lf", mw);
 }
-
+*/
 //* Day 0: Mean, Median, and Mode *//
 /*
 int main()
