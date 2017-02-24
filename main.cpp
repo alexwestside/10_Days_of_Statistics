@@ -6,7 +6,6 @@
 
 //* Day 1: Quartiles *//
 
-
 int ft_med(int arr[], int N)
 {
     int med = 0;
@@ -39,34 +38,19 @@ int main()
     for (int i = 0; i < N; i++)
         scanf("%d", &arr[i]);
     qsort(arr, N, sizeof(int), (int(*)(const void *, const void *)) cmp);
-
-    //for (int i = 0; i < N; i++)
-    //    printf("%d | ", arr[i]);
-    //printf("\n");
-
     med = ft_med(arr, N);
     int Q2 = med;
-    //printf("%d\n", med);
-
     int Q1 = 0;
     int i = 0;
     while(arr[i] < med)
         i++;
     Q1 = ft_med(arr, i);
-    //printf("%d\n", Q1);
-
-
     qsort(arr, N, sizeof(int), (int(*)(const void *, const void *)) cmp2);
     int Q3 = 0;
     i = 0;
     while(arr[i] > med)
         i++;
     Q3 = ft_med(arr, i);
-    //printf("%d", Q3);
-    //for (int i = 0; i < N; i++)
-    //    printf("%d | ", arr[i]);
-
-
     printf("%d\n%d\n%d", Q1, Q2, Q3);
 }
 
