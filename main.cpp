@@ -4,8 +4,26 @@
 #include <stdlib.h>
 
 
-//* Day 1: Quartiles *//
+//* Day 1: Interquartile Range *//
 
+int main(void)
+{
+    int N = 0;
+    for(int i = 0; i < N; i++)
+        scanf("%d", &N);
+    int elem[N];
+    int freq[N];
+    for (int i = 0; i < N; i++)
+        scanf("%d", &elem[i]);
+    for (int i = 0; i < N; i++)
+        scanf("%d", &freq[i]);
+
+
+
+}
+
+//* Day 1: Quartiles *//
+/*
 int ft_med(int arr[], int N)
 {
     int med = 0;
@@ -53,7 +71,7 @@ int main()
     Q3 = ft_med(arr, i);
     printf("%d\n%d\n%d", Q1, Q2, Q3);
 }
-
+*/
 //* Day 1: Standard Deviation *//
 /*
 int main()
