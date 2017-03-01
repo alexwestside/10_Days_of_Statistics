@@ -3,24 +3,51 @@
 #include <math.h>
 #include <stdlib.h>
 
+int ft_med(int arr[], int N)
+{
+    int med = 0;
 
-//* Day 1: Interquartile Range *//
+    if (N % 2)
+        med = arr[N / 2];
+    else
+        med = (arr[N / 2] + arr[N / 2 - 1]) / 2;
+    return (med);
+}
+
+int *cmp(int *i, int *j)
+{
+    return (int *) (*i - *j);
+}
 
 int main(void)
 {
-    int N = 0;
-    for(int i = 0; i < N; i++)
-        scanf("%d", &N);
+    int N;
+    scanf("%d", &N);
     int elem[N];
     int freq[N];
+    int M = 0;
+
     for (int i = 0; i < N; i++)
         scanf("%d", &elem[i]);
     for (int i = 0; i < N; i++)
+    {
         scanf("%d", &freq[i]);
+        M += freq[i];
+    }
+    int arr[M];
+    int x = 0;
+    for(int i = 0; i < N; i++)
+        for(int j = 0; j < freq[i]; j++)
+            arr[x++] = elem[i];
+    qsort(arr, (size_t) M, sizeof(int), (int(*)(const void *, const void *)) cmp);
+    int med = ft_med(arr, M);
+    printf("%d\n", med);
 
-
-
+    for (int i = 0; i < M; i++)
+        printf("%d |", arr[i]);
 }
+
+//* Day 1: Interquartile Range *//
 
 //* Day 1: Quartiles *//
 /*
