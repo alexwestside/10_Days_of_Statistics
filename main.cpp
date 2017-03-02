@@ -3,13 +3,17 @@
 #include <math.h>
 #include <stdlib.h>
 
+//* Day 1: Interquartile Range *//
+
 int ft_med(int arr[], int N)
 {
     int med = 0;
 
     if (N % 2)
+        //med = (arr[N / 2] + arr[N / 2 - 1]) / 2;
         med = arr[N / 2];
     else
+        //med = arr[N / 2];
         med = (arr[N / 2] + arr[N / 2 - 1]) / 2;
     return (med);
 }
@@ -19,6 +23,11 @@ int *cmp(int *i, int *j)
     return (int *) (*i - *j);
 }
 
+int *cmp2(int *i, int *j)
+{
+    return (int *) (*j - *i);
+}
+
 int main(void)
 {
     int N;
@@ -26,6 +35,8 @@ int main(void)
     int elem[N];
     int freq[N];
     int M = 0;
+    double Q1 = 0;
+    double Q3 = 0;
 
     for (int i = 0; i < N; i++)
         scanf("%d", &elem[i]);
@@ -39,18 +50,40 @@ int main(void)
     for(int i = 0; i < N; i++)
         for(int j = 0; j < freq[i]; j++)
             arr[x++] = elem[i];
+
     qsort(arr, (size_t) M, sizeof(int), (int(*)(const void *, const void *)) cmp);
+
+
     int med = ft_med(arr, M);
-    printf("%d\n", med);
+    //printf("%d", med);
 
-    for (int i = 0; i < M; i++)
-        printf("%d |", arr[i]);
+    int i = 0;
+    while(M % 2 ? i <= (M / 2) - 1 : i < M / 2)
+        i++;
+    Q1 = ft_med(arr, i);
+    printf("%0.1f\n", Q1);
+    qsort(arr, (size_t) M, sizeof(int), (int(*)(const void *, const void *)) cmp2);
+
+    i = 0;
+    while(M % 2 ? i <= (M / 2) - 1 : i < M / 2)
+        i++;
+    Q3 = ft_med(arr, i);
+    printf("%0.1f\n", Q3);
+    printf("%0.1f", Q3 - Q1);
 }
-
-//* Day 1: Interquartile Range *//
 
 //* Day 1: Quartiles *//
 /*
+ *
+ *
+ *
+ *
+ *
+ *
+ *     for (int i = 0; i < M / 2; i++)
+        printf("%d|", arr[i]);
+    printf("\n");
+
 int ft_med(int arr[], int N)
 {
     int med = 0;
